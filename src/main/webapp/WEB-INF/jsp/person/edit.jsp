@@ -3,36 +3,59 @@
 
 <!DOCTYPE html>
 
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css" integrity="sha384-jzngWsPS6op3fgRCDTESqrEJwRKck+CILhJVO5VvaAZCq8JYf8HsR/HPpBOOPZfR" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+</head>
 <body>
- <center>
-    <h1>
-        Person Edit
-    </h1>
+    <div class="container">
 
-    <form method="post" action="<%=request.getContextPath()%>/person/update">
-        Name:
-        <c:out value="${person.name}" />
-        <input type="hidden" name="name" value="${person.name}" >
-        <br><br>
-        Age:
-        <input type="number" name="age" value="${person.age}" >
-        <br><br>
-        City:
-        <input type="text" name="city" value="${person.city}" >
-        <br><br>
-        <input type="hidden" name="typeAction" value="edit" >
-        <input type="submit" value="Save" />
-    </form>
+        <h2>
+            Person Edit
+        </h2>
 
-    <br><br>
+        <form method="post" action="<%=request.getContextPath()%>/person/update" class="form-horizontal">
+            <div class="form-group form-group-lg">
+                <label for="name" class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static"><c:out value="${person.name}" /></p>
+                    <input type="hidden" name="name" value="${person.name}" >
+                </div>
+            </div>
+            <div class="form-group form-group-lg">
+                <label for="age" class="col-sm-2 control-label">Age:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="age" value="${person.age}" >
+                </div>
+            </div>
+            <div class="form-group form-group-lg">
+                <label for="city" class="col-sm-2 control-label">City:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="city" value="${person.city}" >
+                </div>
+            </div>
+            <div style="float:right">
+                <input type="hidden" name="typeAction" value="edit" >
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
 
-    <form method="post" action="<%=request.getContextPath()%>/person/delete">
-      <input type="hidden" name="name" value="${person.name}" >
-      <input type="hidden" name="typeAction" value="delete" >
-      <input type="submit" value="Delete" />
-    </form>
+        <br><br><br><br>
 
-</center>
+        <form method="post" action="<%=request.getContextPath()%>/person/delete">
+          <div style="float:right">
+            <input type="hidden" name="name" value="${person.name}" >
+            <input type="hidden" name="typeAction" value="delete" >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+        </form>
+
+    </div>
 </body>
 </html>
