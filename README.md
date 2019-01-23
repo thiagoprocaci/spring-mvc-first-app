@@ -247,9 +247,161 @@ public class HelloController {
 ### application.properties
 
 ```
-server.context-path: /spring-mvc
+server.context-path = /spring-mvc
 
 spring.mvc.view.prefix=/WEB-INF/jsp/
 spring.mvc.view.suffix=.jsp
+
+```
+
+## JSP
+
+### index.jsp
+
+```
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+      <a href="<%=request.getContextPath()%>/person/list">Person CRUD</a>
+
+
+      <br>
+    </body>
+</html>
+
+```
+
+### list.jsp
+
+```
+<%@ page import ="java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+    <h1>
+        Person List
+    </h1>
+
+
+    <table>
+     <tr>
+        <th>
+            Edit
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            City
+        </th>
+      </tr>
+      <c:forEach var="person" items="${personList}">
+       <tr>
+            <td>
+                <a href="<%=request.getContextPath()%>/person/edit?name=${person.name}">Edit</a>
+            </td>
+            <td>
+                <c:out value="${person.name}" />
+            </td>
+            <td>
+                <c:out value="${person.age}" />
+            </td>
+            <td>
+                <c:out value="${person.city}" />
+            </td>
+        </tr>
+      </c:forEach>
+     </table>
+
+
+      <a href="<%=request.getContextPath()%>/person/create">Add Person</a>
+</center>
+</body>
+</html>
+
+```
+
+### edit.jsp
+
+```
+<%@ page import ="java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+
+
+<body>
+ <center>
+    <h1>
+        Person Edit
+    </h1>
+
+    <form method="post" action="<%=request.getContextPath()%>/person/update">
+        Name:
+        <c:out value="${person.name}" />
+        <input type="hidden" name="name" value="${person.name}" >
+        <br><br>
+        Age:
+        <input type="number" name="age" value="${person.age}" >
+        <br><br>
+        City:
+        <input type="text" name="city" value="${person.city}" >
+        <br><br>
+        <input type="submit" value="Save" />
+    </form>
+
+    <br><br>
+
+    <form method="post" action="<%=request.getContextPath()%>/person/delete">
+      <input type="hidden" name="name" value="${person.name}" >
+      <input type="submit" value="Delete" />
+    </form>
+
+</center>
+</body>
+</html>
+
+```
+
+### create.jsp
+
+```
+<%@ page import ="java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<body>
+<center>
+    <h1>
+        Person Create
+    </h1>
+
+    <form method="post" action="<%=request.getContextPath()%>/person/create">
+        Name:
+
+        <input type="text" name="name"  >
+        <br><br>
+        Age:
+        <input type="number" name="age" >
+        <br><br>
+        City:
+        <input type="text" name="city"  >
+        <br><br>
+
+        <input type="submit" value="Save" />
+    </form>
+
+</center>
+</body>
+</html>
 
 ```
