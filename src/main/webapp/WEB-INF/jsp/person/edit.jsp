@@ -21,7 +21,6 @@
         City:
         <input type="text" name="city" value="${person.city}" >
         <br><br>
-        <input type="hidden" name="typeAction" value="edit" >
         <input type="submit" value="Save" />
     </form>
 
@@ -29,7 +28,6 @@
 
     <form method="post" action="<%=request.getContextPath()%>/person/delete">
       <input type="hidden" name="name" value="${person.name}" >
-      <input type="hidden" name="typeAction" value="delete" >
       <input type="submit" value="Delete" />
     </form>
 
