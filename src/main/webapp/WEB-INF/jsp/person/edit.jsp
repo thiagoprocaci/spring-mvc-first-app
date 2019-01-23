@@ -41,7 +41,6 @@
                 </div>
             </div>
             <div style="float:right">
-                <input type="hidden" name="typeAction" value="edit" >
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
@@ -51,7 +50,6 @@
         <form method="post" action="<%=request.getContextPath()%>/person/delete">
           <div style="float:right">
             <input type="hidden" name="name" value="${person.name}" >
-            <input type="hidden" name="typeAction" value="delete" >
             <button type="submit" class="btn btn-danger">Delete</button>
           </div>
         </form>
