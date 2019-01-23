@@ -241,3 +241,15 @@ public class HelloController {
 
 }
 ```
+
+## Arquivo de Configuração
+
+### application.properties
+
+```
+server.context-path: /spring-mvc
+
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+
+```
