@@ -20,19 +20,19 @@
             <div class="form-group form-group-lg">
                 <label for="name" class="col-sm-2 control-label">Name:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control" >
+                    <input type="text" name="name" class="form-control" id="name">
                 </div>
             </div>
             <div class="form-group form-group-lg">
                 <label for="age" class="col-sm-2 control-label">Age:</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="age"  >
+                    <input type="number" class="form-control" name="age" id="age"  >
                 </div>
             </div>
             <div class="form-group form-group-lg">
                 <label for="city" class="col-sm-2 control-label">City:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="city" >
+                    <input type="text" class="form-control" name="city" id="city">
                 </div>
             </div>
             <div style="float:right">
