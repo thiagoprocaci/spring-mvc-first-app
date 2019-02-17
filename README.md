@@ -10,6 +10,10 @@ package com.tbp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.filter.CharacterEncodingFilter;
+
 
 @SpringBootApplication
 public class Application  {
@@ -17,6 +21,19 @@ public class Application  {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
+
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setForceEncoding(true);
+        characterEncodingFilter.setEncoding("UTF-8");
+        registrationBean.setFilter(characterEncodingFilter);
+        return registrationBean;
+    }
+
+
 }
 
 ```
@@ -259,10 +276,12 @@ spring.mvc.view.suffix=.jsp
 ### index.jsp
 
 ```
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
+   <head>
+   	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   </head>
     <body>
 
       <a href="<%=request.getContextPath()%>/person/list">Person CRUD</a>
@@ -277,11 +296,16 @@ spring.mvc.view.suffix=.jsp
 ### list.jsp
 
 ```
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import ="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
+
 <html>
+<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
 <body>
 <center>
     <h1>
@@ -333,11 +357,15 @@ spring.mvc.view.suffix=.jsp
 ### edit.jsp
 
 ```
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import ="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
-
+<html>
+<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
 
 <body>
  <center>
@@ -375,10 +403,16 @@ spring.mvc.view.suffix=.jsp
 ### create.jsp
 
 ```
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import ="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
+<html>
+<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
 <body>
 <center>
     <h1>
