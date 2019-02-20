@@ -1,19 +1,31 @@
 package com.tbp.repository;
 
+import java.util.List;
+
 public class Person {
 
     String name;
     Integer age;
     String city;
+    List<String> skills;
 
-    public Person(String name, Integer age, String city) {
+    public Person(String name, Integer age, String city, List<String> skills) {
         this.name = name;
         this.age = age;
         this.city = city;
+        this.skills = skills;
     }
 
     public Person() {
 
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 
     public String getName() {

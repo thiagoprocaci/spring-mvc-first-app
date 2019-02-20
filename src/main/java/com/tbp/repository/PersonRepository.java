@@ -2,10 +2,7 @@ package com.tbp.repository;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class PersonRepository {
@@ -13,9 +10,9 @@ public class PersonRepository {
     static Map<String, Person> personMap;
 
     static {
-        Person john = new Person("John", 20, "Rio de Janeiro");
-        Person mary = new Person("Mary", 22, "New York");
-        Person andrew = new Person("Andrew", 30, "London");
+        Person john = new Person("John", 20, "Rio de Janeiro", new ArrayList<>());
+        Person mary = new Person("Mary", 22, "New York", new ArrayList<>());
+        Person andrew = new Person("Andrew", 30, "London", new ArrayList<>());
 
         personMap = new HashMap<String, Person>();
         personMap.put(john.getName(), john);

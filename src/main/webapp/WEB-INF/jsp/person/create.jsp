@@ -25,6 +25,13 @@
         City:
         <input type="text" name="city"  >
         <br><br>
+        Skills: <br>
+        <select name="skillList" multiple>
+            <c:forEach var="skill" items="${skills}">
+                <option value="${skill}">${skill}</option>
+           </c:forEach>
+        </select>
+        <br><br>
 
         <input type="submit" value="Save" />
     </form>

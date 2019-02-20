@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import ="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <html>
 <head>
@@ -25,6 +26,19 @@
         City:
         <input type="text" name="city" value="${person.city}" >
         <br><br>
+        Skills: <br>
+        <select name="skillList" multiple>
+            <c:forEach var="skill" items="${skills}">
+                 <c:if test="${fn:contains(person.skills, skill)}">
+                    <option value="${skill}" selected>${skill}</option>
+                </c:if>
+                 <c:if test="${not fn:contains(person.skills, skill)}">
+                    <option value="${skill}" >${skill}</option>
+                </c:if>
+           </c:forEach>
+        </select>
+
+                <br><br>
         <input type="submit" value="Save" />
     </form>
 

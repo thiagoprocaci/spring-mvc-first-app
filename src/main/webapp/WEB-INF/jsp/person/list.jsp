@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import ="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <html>
 <head>
@@ -29,6 +29,9 @@
         <th>
             City
         </th>
+        <th>
+            Skills Amount
+        </th>
       </tr>
       <c:forEach var="person" items="${personList}">
        <tr>
@@ -43,6 +46,10 @@
             </td>
             <td>
                 <c:out value="${person.city}" />
+            </td>
+            <td>
+                 ${fn:length(person.skills)}
+
             </td>
         </tr>
       </c:forEach>
