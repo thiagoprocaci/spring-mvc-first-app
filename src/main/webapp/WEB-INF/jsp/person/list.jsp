@@ -39,7 +39,12 @@
                 <a href="<%=request.getContextPath()%>/person/edit?name=${person.name}">Edit</a>
             </td>
             <td>
-                <c:out value="${person.name}" />
+                <c:if test="${fn:length(person.skills) gt 0}">
+                    <font color="red"><c:out value="${person.name}" /></font>
+                </c:if>
+                 <c:if test="${fn:length(person.skills) eq 0}">
+                    <c:out value="${person.name}" />
+                </c:if>
             </td>
             <td>
                 <c:out value="${person.age}" />

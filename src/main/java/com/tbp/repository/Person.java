@@ -1,5 +1,6 @@
 package com.tbp.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
@@ -8,12 +9,20 @@ public class Person {
     Integer age;
     String city;
     List<String> skills;
+    String email;
+    String password;
 
-    public Person(String name, Integer age, String city, List<String> skills) {
+    public Person(String name, Integer age, String city, List<String> skills, String email, String password) {
         this.name = name;
         this.age = age;
         this.city = city;
-        this.skills = skills;
+        if(skills != null) {
+            this.skills = skills;
+        } else {
+            this.skills = new ArrayList<>();
+        }
+        this.email = email;
+        this.password = password;
     }
 
     public Person() {
@@ -52,4 +61,19 @@ public class Person {
         this.city = city;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

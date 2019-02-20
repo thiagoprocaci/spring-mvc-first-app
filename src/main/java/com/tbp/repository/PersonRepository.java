@@ -10,9 +10,9 @@ public class PersonRepository {
     static Map<String, Person> personMap;
 
     static {
-        Person john = new Person("John", 20, "Rio de Janeiro", new ArrayList<>());
-        Person mary = new Person("Mary", 22, "New York", new ArrayList<>());
-        Person andrew = new Person("Andrew", 30, "London", new ArrayList<>());
+        Person john = new Person("John", 20, "Rio de Janeiro", new ArrayList<>(), "john@email.com", "123");
+        Person mary = new Person("Mary", 22, "New York", new ArrayList<>(), "mary@email.com", "123");
+        Person andrew = new Person("Andrew", 30, "London", new ArrayList<>(), "andrew@email.com", "123");
 
         personMap = new HashMap<String, Person>();
         personMap.put(john.getName(), john);

@@ -26,6 +26,12 @@
         City:
         <input type="text" name="city" value="${person.city}" >
         <br><br>
+        Email:
+        <input type="email" name="email"  value="${person.email}" >
+        <br><br>
+        Password:
+        <input type="password" name="password"  value="${person.password}" >
+        <br><br>
         Skills: <br>
         <select name="skillList" multiple>
             <c:forEach var="skill" items="${skills}">

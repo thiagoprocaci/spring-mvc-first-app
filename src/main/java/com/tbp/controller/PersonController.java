@@ -41,12 +41,16 @@ public class PersonController {
     public String update(@RequestParam("name") String name,
                         @RequestParam("age") Integer age,
                        @RequestParam("city") String city,
-                         @RequestParam("skillList") List<String> skillList) {
+                         @RequestParam("email") String email,
+                         @RequestParam("password") String password,
+                         @RequestParam(value = "skillList", required = false) List<String> skillList) {
 
         Person person = personRepository.getByName(name);
         person.setAge(age);
         person.setCity(city);
         person.setSkills(skillList);
+        person.setEmail(email);
+        person.setPassword(password);
         personRepository.save(person);
         return "redirect:/person/list";
     }
@@ -68,8 +72,10 @@ public class PersonController {
     public String create(@RequestParam("name") String name,
                          @RequestParam("age") Integer age,
                          @RequestParam("city") String city,
-                         @RequestParam("skillList") List<String> skillList) {
-        Person person = new Person(name, age, city, skillList);
+                         @RequestParam("email") String email,
+                         @RequestParam("password") String password,
+                         @RequestParam(value = "skillList", required = false) List<String> skillList) {
+        Person person = new Person(name, age, city, skillList, email, password);
         personRepository.save(person);
         return "redirect:/person/list";
     }
