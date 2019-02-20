@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Map;
@@ -22,9 +23,10 @@ public class PersonController {
     SkillRepository skillRepository;
 
     @RequestMapping(value = "list", method = RequestMethod.GET )
-    public String listPage(Map<String, Object> model) {
+    public String listPage(Map<String, Object> model, @RequestParam(value = "message", required = false) String message) {
         List<Person> personList = personRepository.findAll();
         model.put("personList", personList);
+        model.put("message", message);
         return "/person/list";
     }
 
@@ -74,9 +76,11 @@ public class PersonController {
                          @RequestParam("city") String city,
                          @RequestParam("email") String email,
                          @RequestParam("password") String password,
-                         @RequestParam(value = "skillList", required = false) List<String> skillList) {
+                         @RequestParam(value = "skillList", required = false) List<String> skillList,
+                         RedirectAttributes attributes) {
         Person person = new Person(name, age, city, skillList, email, password);
         personRepository.save(person);
+        attributes.addAttribute("message", name + " saved");
         return "redirect:/person/list";
     }
 }

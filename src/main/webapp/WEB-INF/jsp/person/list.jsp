@@ -13,7 +13,8 @@
     <h1>
         Person List
     </h1>
-
+    ${message}
+    <br>
 
     <table>
      <tr>
