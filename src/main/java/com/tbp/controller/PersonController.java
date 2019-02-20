@@ -46,7 +46,7 @@ public class PersonController {
     }
 
     @RequestMapping(value = "delete", method = RequestMethod.POST )
-    public String update(@RequestParam("name") String name){
+    public String delete(@RequestParam("name") String name){
         personRepository.delete(name);
         return "redirect:/person/list";
     }
