@@ -38,4 +38,18 @@ public class PersonRepository {
         return personMap.get(name);
     }
 
+
+    public List<Person> findBySkill(String skill) {
+        List<Person> personList = new ArrayList<>();
+        Collection<Person> all = personMap.values();
+        for(Person p : all) {
+            for(String s : p.getSkills()) {
+                if(s.equals(skill)) {
+                    personList.add(p);
+                }
+            }
+        }
+        return personList;
+    }
+
 }

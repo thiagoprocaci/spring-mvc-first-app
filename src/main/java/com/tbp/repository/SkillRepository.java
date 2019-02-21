@@ -9,7 +9,8 @@ import java.util.List;
 public class SkillRepository {
 
     public List<String> findAll() {
-        return Arrays.asList("Good Father", "Good Programmer", "Friendly");
+        List<String> stringList = Arrays.asList("Good Father", "Good Programmer", "Friendly");
+        return stringList;
     }
 
 
