@@ -7,54 +7,57 @@
 <html>
 <head>
 	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 
 <body>
- <center>
-    <h1>
-        Person Edit
-    </h1>
+<div class="container">
+     <center>
+        <h1>
+            Person Edit
+        </h1>
 
-    <form method="post" action="<%=request.getContextPath()%>/person/update">
-        Name:
-        <c:out value="${person.name}" />
-        <input type="hidden" name="name" value="${person.name}" >
-        <br><br>
-        Age:
-        <input type="number" name="age" value="${person.age}" >
-        <br><br>
-        City:
-        <input type="text" name="city" value="${person.city}" >
-        <br><br>
-        Email:
-        <input type="email" name="email"  value="${person.email}" >
-        <br><br>
-        Password:
-        <input type="password" name="password"  value="${person.password}" >
-        <br><br>
-        Skills: <br>
-        <select name="skillList" multiple>
-            <c:forEach var="skill" items="${skills}">
-                 <c:if test="${fn:contains(person.skills, skill)}">
-                    <option value="${skill}" selected>${skill}</option>
-                </c:if>
-                 <c:if test="${not fn:contains(person.skills, skill)}">
-                    <option value="${skill}" >${skill}</option>
-                </c:if>
-           </c:forEach>
-        </select>
+        <form method="post" action="<%=request.getContextPath()%>/person/update">
+            Name:
+            <c:out value="${person.name}" />
+            <input type="hidden" name="name" value="${person.name}" >
+            <br><br>
+            Age:
+            <input type="number" name="age" value="${person.age}" >
+            <br><br>
+            City:
+            <input type="text" name="city" value="${person.city}" >
+            <br><br>
+            Email:
+            <input type="email" name="email"  value="${person.email}" >
+            <br><br>
+            Password:
+            <input type="password" name="password"  value="${person.password}" >
+            <br><br>
+            Skills: <br>
+            <select name="skillList" multiple>
+                <c:forEach var="skill" items="${skills}">
+                     <c:if test="${fn:contains(person.skills, skill)}">
+                        <option value="${skill}" selected>${skill}</option>
+                    </c:if>
+                     <c:if test="${not fn:contains(person.skills, skill)}">
+                        <option value="${skill}" >${skill}</option>
+                    </c:if>
+               </c:forEach>
+            </select>
 
-                <br><br>
-        <input type="submit" value="Save" />
-    </form>
+                    <br><br>
+            <input type="submit" value="Save" />
+        </form>
 
-    <br><br>
+        <br><br>
 
-    <form method="post" action="<%=request.getContextPath()%>/person/delete">
-      <input type="hidden" name="name" value="${person.name}" >
-      <input type="submit" value="Delete" />
-    </form>
+        <form method="post" action="<%=request.getContextPath()%>/person/delete">
+          <input type="hidden" name="name" value="${person.name}" >
+          <input type="submit" value="Delete" />
+        </form>
 
-</center>
+    </center>
+</div>
 </body>
 </html>
