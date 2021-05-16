@@ -6,7 +6,7 @@
    </head>
     <body>
 
-      <a href="<%=request.getContextPath()%>/person/list">Person CRUD</a>
+      <a href="<%=request.getContextPath()%>/pessoa/listar">Lista Prioridade Vacinação</a>
 
 
       <br>
