@@ -3,7 +3,7 @@ package com.tbp.model;
 import java.util.Date;
 import java.util.Calendar;
 
-public class Pessoa implements Comparable<Pessoa> {
+public class Pessoa  {
 
     Integer id;
     String nome;
@@ -40,11 +40,7 @@ public class Pessoa implements Comparable<Pessoa> {
         return vacinado;
     }
 
-    @Override
-    public int compareTo(Pessoa o) {
-        int i = this.idade.compareTo(o.idade);
-        return i * (-1);
-    }
+
 
     public String getNome() {
         return nome;

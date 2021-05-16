@@ -20,9 +20,6 @@ public class PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public Pessoa obterPorId(Integer id) {
-        return pessoaRepository.obterPorId(id);
-    }
 
     public Pessoa editar(Integer id, String vacinado) {
         Pessoa pessoa = pessoaRepository.obterPorId(id);
@@ -49,20 +46,5 @@ public class PessoaService {
         return pessoaRepository.salvar(nome, dataNasc, cidade);
     }
 
-    public List<Pessoa> obterPessoaNaoVacinada() {
-        List<Pessoa> pessoaList = pessoaRepository.listar();
-        List<Pessoa> naoVacinados = new ArrayList<>();
-        for(Pessoa p : pessoaList) {
-            if(p != null && !p.isVacinado()) {
-                naoVacinados.add(p);
-            }
-        }
-        Collections.sort(naoVacinados);
-        return naoVacinados;
-    }
 
-    public List<Pessoa> listaPrioridade() {
-        List<Pessoa> pessoaList = obterPessoaNaoVacinada();
-        return pessoaList;
-    }
 }
